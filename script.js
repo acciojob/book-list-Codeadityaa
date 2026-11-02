@@ -1,27 +1,28 @@
-document.getElementById('submit').addEventListener('click', (e) => {
-  e.preventDefault();
-  const title = document.getElementById('title').value.trim();
-  const author = document.getElementById('author').value.trim();
-  const isbn = document.getElementById('isbn').value.trim();
+//your JS code here. If required.
+ function submitData() {
+	let titleValue = document.getElementById('title').value.trim();
+	let authorValue = document.getElementById('author').value.trim();
+	let isbnValue = document.getElementById('isbn').value.trim();
+	
+	 if (!titleValue || !authorValue || !isbnValue) {
+        alert('Please fill in all fields.');
+        return;
+      }
+	 
+	 let element = document.createElement("tr");
+	 element.innerHtml = `<td>${titleValue}</td>
+						<td>${authorValue}</td>
+						<td>${isbnValue}</td>
+						<td><button class="delete">X</button></td>`;
+	 document.getElementById('book-list').appendChild(element);
+ }
 
-  if (!title || !author || !isbn) return;
 
-  const row = document.createElement('tr');
-  row.innerHTML = `
-    <td>${title}</td>
-    <td>${author}</td>
-    <td>${isbn}</td>
-    <td><button class="delete">X</button></td>
-  `;
-  document.getElementById('book-list').appendChild(row);
+let mybtn = document.getElementById('submit');
+mybtn.addEventListener('click',submitData);
 
-  document.getElementById('title').value = '';
-  document.getElementById('author').value = '';
-  document.getElementById('isbn').value = '';
-});
-
-document.getElementById('book-list').addEventListener('click', (e) => {
-  if (e.target.classList.contains('delete')) {
-    e.target.closest('tr').remove();
-  }
-});
+	document.getElementById('book-list').addEventListener('click', function (e) {
+      if (e.target.classList.contains('delete')) {
+        e.target.parentElement.parentElement.remove(); 
+      }
+    });

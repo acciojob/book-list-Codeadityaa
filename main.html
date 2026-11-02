@@ -7,6 +7,33 @@
 </head>
 
 <body>
+	<h1 style="font-weight:normal;text-align:center">My<span style="color:blue;">Book</span>List</h1>
+	<div class="form-group">
+		<form>
+			<label for="title">Title</label><br/>
+			<input style="width:100vw;" id="title" type="text" name="title"><br/><br/>
+			<label for="author">Author</label><br/>
+			<input style="width:100vw;" type="text" name="author" id="author"><br/><br/>
+			<label for="isbn">ISBN</label><br/>
+			<input style="width:100vw;" type="number" id="isbn" name="isbn">
+			<button style="background-color: #008CBA; color:white; border-radius: 4px; width:100px; height:30px;" type="submit" id="submit" value="submit">Add Book</button>
+		</form>
+	</div>
+	<div style="border-bottom:1px solid;">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th style="width:200px">Title</th>
+					<th style="width:200px">Author</th>
+					<th style="width:200px">ISBN#</th>
+					<th style="width:200px"></th>
+				</tr>
+			</thead>
+			<tbody id="book-list">
+				
+			</tbody>
+		</table>
+	</div>
 	<!-- the entire body must be written by student -->
     <script type="text/javascript" src="./script.js">
 </script>
